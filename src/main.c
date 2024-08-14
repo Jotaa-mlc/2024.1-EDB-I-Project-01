@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <ctype.h>
 #include "atendimento.h"
 
@@ -36,13 +37,15 @@ int main()
     pedidos_procesando.header = NULL; //inicializando a lista de pedidos a serem processados
 
     int logout = 0;
+    char buffer[10] = {0};
     int cmd;
 
     while (!logout)
     {
         print_main_menu();
 
-        scanf("%d", &cmd);
+        cmd = atoi(fgets(buffer, 4, stdin));
+        //scanf("%d", &cmd);
 
         switch (cmd)
         {

@@ -1,5 +1,5 @@
 CXX = gcc
-CXXFLAGS = -g -std=c99 -Wall -Wextra -pedantic
+CXXFLAGS = -g -std=c99 -Wall -Werror -Wextra -pedantic
 SRC_DIR = src
 OBJ_DIR = objFiles
 TARGET = restaurant_maneger

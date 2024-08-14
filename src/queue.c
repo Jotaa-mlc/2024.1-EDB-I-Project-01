@@ -4,9 +4,11 @@
 void push(Queue *q, int pedido)
 {
     Node *current = q->header;
-    while (current->next != NULL)
+    Node *next = current;
+    while (next != NULL)
     {
-        current = current->next;
+        current = next;
+        next = current->next;
     }
 
     Node *new_node = calloc(1, sizeof(Node));
@@ -14,7 +16,14 @@ void push(Queue *q, int pedido)
     new_node->prev = current;
     new_node->next = NULL;
 
-    current->next = new_node;
+    if (current != NULL)
+    {
+        current->next = new_node;
+    }
+    else
+    {
+        q->header = new_node;
+    }
 }
 
 int pop(Queue *q)

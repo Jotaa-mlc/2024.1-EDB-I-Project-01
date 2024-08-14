@@ -4,17 +4,29 @@
 void push_back(List *l, int pedido)
 {
     Node *current = l->header;
-    while (current->next != NULL)
+    Node *next = current;
+    while (next != NULL)
     {
-        current = current->next;
+        current = next;
+        next = current->next;
     }
+
 
     Node *new_node = calloc(1, sizeof(Node));
     new_node->pedido = pedido;
     new_node->prev = current;
     new_node->next = NULL;
 
-    current->next = new_node;
+    if (current != NULL)
+    {
+        current->next = new_node;
+    }
+    else
+    {
+        l->header = new_node;
+    }
+    
+    
 }
 
 int pop_front(List *l)
