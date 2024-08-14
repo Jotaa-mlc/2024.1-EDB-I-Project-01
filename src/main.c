@@ -1,5 +1,6 @@
 #include <stdio.h>
-
+#include <ctype.h>
+#include "atendimento.h"
 
 void print_main_menu()
 {
@@ -28,6 +29,12 @@ int sair()//confirmação de saida
 
 int main()
 {
+    List pedidos;
+    pedidos.header = NULL; //inicializando a lista de pedidos
+
+    Queue pedidos_procesando;
+    pedidos_procesando.header = NULL; //inicializando a lista de pedidos a serem processados
+
     int logout = 0;
     int cmd;
 
@@ -40,23 +47,23 @@ int main()
         switch (cmd)
         {
             case 1://Adicionar Pedido
-                
+                adicionar_peidido(&pedidos);
                 break;
             
             case 2://Remover Pedido
-                
+                remover_pedido(&pedidos);
                 break;
             
             case 3://Processar Pedido
-                
+                processar_pedido(&pedidos, &pedidos_procesando);
                 break;
             
             case 4://Listar Pedidos Pendentes
-                
+                listar_pedidos_pendentes(&pedidos);
                 break;
             
             case 5://Listar Pedidos em Processamento
-                
+                listar_pedidos_processamento(&pedidos_procesando);
                 break;
             
             case 6://sair do programa

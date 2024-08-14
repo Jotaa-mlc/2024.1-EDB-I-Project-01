@@ -9,5 +9,5 @@ typedef struct list
 
 void push_back(List *l, int pedido);
 int pop_front(List *l);
-int search_item(List *l, int pedido);
+int remove_item(List *l, int pos);
 #endif
