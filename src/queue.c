@@ -1,5 +1,29 @@
-#include "queue.h"
+#include "headers/queue.h"
 #include <stdlib.h>
+
+Queue *initialize_queue()
+{
+    Queue *l = calloc(1, sizeof(Queue));
+
+    if (!l)
+        return NULL;
+
+    l->header = NULL;
+    return l;
+}
+
+void destruct_queue(Queue *l)
+{
+    Node *current = l->header;
+    while (current)
+    {
+        Node *temp = current;
+        current = current->next;
+        free(temp);
+    }
+
+    free(l);
+}
 
 void push(Queue *q, int pedido)
 {

@@ -1,5 +1,7 @@
 CXX = gcc
 CXXFLAGS = -g -std=c99 -Wall -Werror -Wextra -pedantic
+LEAK_TESTER = valgrind
+LEAK_FLAGS = --leak-check=full --show-leak-kinds=all
 SRC_DIR = src
 OBJ_DIR = objFiles
 TARGET = restaurant_maneger
@@ -20,3 +22,6 @@ clean:
 
 test: $(TARGET)
 	./$(TARGET) $(TEST_ARGS)
+
+leak: $(TARGET)
+	$(LEAK_TESTER) $(LEAK_FLAGS) ./$(TARGET)

@@ -1,5 +1,29 @@
-#include "list.h"
+#include "headers/list.h"
 #include <stdlib.h>
+
+List *initialize_list()
+{
+    List *l = calloc(1, sizeof(List));
+
+    if (!l)
+        return NULL;
+
+    l->header = NULL;
+    return l;
+}
+
+void destruct_list(List *l)
+{
+    Node *current = l->header;
+    while (current)
+    {
+        Node *temp = current;
+        current = current->next;
+        free(temp);
+    }
+
+    free(l);
+}
 
 void push_back(List *l, int pedido)
 {
