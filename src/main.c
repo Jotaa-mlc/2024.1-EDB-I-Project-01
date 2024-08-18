@@ -47,7 +47,7 @@ int main()
         switch (cmd)
         {
             case 1://Adicionar Pedido
-                adicionar_peidido(pedidos);
+                adicionar_pedido(pedidos);
                 break;
             
             case 2://Remover Pedido

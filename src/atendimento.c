@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void adicionar_peidido(List *l)
+void adicionar_pedido(List *l)
 {
     printf("Qual item de nosso cardapio gostaria de pedir?\n");
     print_cardapio();
